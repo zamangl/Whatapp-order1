@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#128c7e">
+  <title>OrderFlow — WhatsApp Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">↗</span><span>OrderFlow<small>WHATSAPP STORE</small></span></a>
+    <nav><button class="nav-btn active" data-view="store">Store</button><button class="nav-btn" data-view="manage">Manage store</button></nav>
+  </header>
+
+  <main>
+    <section id="storeView">
+      <div class="hero">
+        <div><p class="eyebrow">SIMPLE. DIRECT. READY TO ORDER.</p><h1>Your shop,<br><span>one WhatsApp away.</span></h1>
+          <p class="hero-copy">Browse products, add them to your order, and send the details to our WhatsApp in seconds.</p>
+          <a class="hero-cta" href="#products">Explore products <span>↓</span></a>
+        </div>
+        <div class="hero-art"><div class="art-card card-back">✦<br><small>YOUR NEXT<br>FAVOURITE</small></div><div class="art-card card-front"><span class="chat-icon">◔</span><strong>Order made<br>easy.</strong><small>Tap. Send. Done.</small></div><span class="spark spark-one">✳</span><span class="spark spark-two">✦</span></div>
+      </div>
+      <section class="store-intro" id="products"><div><p class="eyebrow">THE COLLECTION</p><h2>Featured products</h2></div><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products"></div></section>
+      <div id="productGrid" class="product-grid"></div>
+      <section class="order-panel">
+        <div class="order-panel-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your order</h2></div><span id="cartCount" class="count-pill">0 items</span></div>
+        <div id="cartItems" class="cart-items"><p class="empty">Your cart is empty. Add a product to get started.</p></div>
+        <div class="cart-total"><span>Estimated total</span><strong id="cartTotal">Rs 0</strong></div>
+        <form id="checkoutForm" class="checkout-form">
+          <div class="form-grid"><label>Your name<input name="customerName" required placeholder="e.g. Ayesha Khan"></label><label>Phone number<input name="customerPhone" required inputmode="tel" placeholder="03XX XXXXXXX"></label></div>
+          <label>Delivery address<textarea name="address" required rows="2" placeholder="House, street, city"></textarea></label>
+          <label>Order note <span class="muted">(optional)</span><input name="note" placeholder="Size, colour, or delivery instructions"></label>
+          <button class="whatsapp-btn" type="submit"><span>◉</span> Send order on WhatsApp</button>
+          <p class="fineprint">WhatsApp opens with your order message. Please press Send in WhatsApp to place your order.</p>
+        </form>
+      </section>
+    </section>
+
+    <section id="manageView" class="manage-view hidden">
+      <div class="manage-heading"><div><p class="eyebrow">STORE SETTINGS</p><h1>Manage your store</h1><p class="muted">Changes are saved in this browser only in this free demo.</p></div><button id="resetDemo" class="outline-btn">Reset demo data</button></div>
+      <div class="settings-card">
+        <h2>Store details</h2>
+        <form id="settingsForm">
+          <label>Store name<input id="storeName" required maxlength="60" placeholder="My Store"></label>
+          <label>WhatsApp number <span class="muted">(country code, numbers only)</span><input id="storePhone" required inputmode="numeric" placeholder="923001234567"></label>
+          <p class="help">Pakistan example: 923001234567. Do not add +, spaces, or dashes.</p>
+          <button class="primary-btn" type="submit">Save store details</button>
+        </form>
+      </div>
+      <div class="settings-card">
+        <h2>Add a product</h2>
+        <form id="productForm">
+          <div class="form-grid"><label>Product name<input name="name" required maxlength="80" placeholder="Everyday Tote Bag"></label><label>Price (PKR)<input name="price" type="number" required min="0" step="1" placeholder="2500"></label></div>
+          <label>Image URL <span class="muted">(optional)</span><input name="image" type="url" placeholder="https://example.com/product.jpg"></label>
+          <label>Description<input name="description" maxlength="180" placeholder="A short product description"></label>
+          <button class="primary-btn" type="submit">＋ Add product</button>
+        </form>
+      </div>
+      <div class="settings-card"><div class="section-heading"><h2>Your products</h2><button id="exportProducts" class="outline-btn">Export CSV</button></div><div id="manageProducts" class="manage-products"></div></div>
+      <div class="notice"><strong>Important:</strong> This is a static, no-backend starter. Store settings and product edits live in the browser that made them. A customer’s order is sent to the seller through WhatsApp; this demo does not provide a shared online order database or secure multi-user accounts.</div>
+    </section>
+  </main>
+  <footer><span>OrderFlow</span><span>Made for small businesses · WhatsApp-powered checkout</span></footer>
+  <div id="toast" role="status" class="toast" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
