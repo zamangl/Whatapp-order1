@@ -1,18 +1,18 @@
-# WhatsApp Order Automation Plus
+# WhatsApp Order Automation — Updated Demo
 
-Upload `index.html`, `styles.css`, `app.js`, and `README.md` to the root of one GitHub repository, then import it into Vercel as a static project.
+## What's included
+- Professional responsive storefront and admin dashboard
+- Guest visitors can browse products, add to cart, and prepare an order for WhatsApp
+- Admin panel login password for this static demo: `ZAHEER` (case-sensitive)
+- Add/edit/delete products, upload product images from a phone or computer, and preview images
+- Order list, status updates, CSV export, store settings
+- WhatsApp order message with a formatted itemized list, quantities, subtotals, customer details, and total
+- Public Vercel deployment should not require visitors to have Vercel accounts if Deployment Protection is disabled for the production deployment
 
-## Features
-- Responsive design and product search
-- Cart and WhatsApp checkout
-- Admin demo login (default password: `admin123`)
-- Add/edit/delete products
-- Order list, status updates, delete orders, CSV export
-- Store name, WhatsApp number, currency, payment link, password settings
-- Payment method choices: cash on delivery, bank transfer, Easypaisa/JazzCash, payment link
+## Deploy
+Upload `index.html`, `styles.css`, `app.js`, and `README.md` to the root of the GitHub repository, then redeploy the project on Vercel.
 
-## Setup
-Open the site, select **Admin panel**, sign in with `admin123`, then open **Settings**. Enter your store name and WhatsApp number using digits only, including country code (Pakistan example format: `923001234567`). Change the demo password.
+## Important security and storage limits
+This is still a **static front-end demo**, not a production-secure store. The password is present in client-side JavaScript and can be discovered by a technically capable visitor. It protects the normal interface only; it is not secure authorization. Products, uploaded images, settings, and orders are saved in the current browser's localStorage, so they do not sync to other visitors/devices. Images are stored as browser data and should be small (under about 1.2 MB). For genuine admin security and shared product/order data, add a backend such as Supabase Auth + database + Storage, and enforce authorization with database policies/server-side logic. Never place secret service-role keys in browser code.
 
-## Important limits
-This is a static front-end demo. Products, settings, orders, and password are stored only in the current browser's localStorage; they do not sync to other devices or browsers. The browser-only login is not secure for a public production store. WhatsApp opens with a prefilled message and the customer must press Send. Payment methods are manual/informational; this app does not process or verify payments. For a real multi-user store, connect a secure backend/database and a payment provider. Never ask customers to enter card details or payment passwords here.
+WhatsApp checkout opens a prefilled message. The customer must press Send. This site does not send messages automatically or process/verify payments. Only upload product images and use media you have rights to use. No tool can guarantee copyright claims will never happen.
