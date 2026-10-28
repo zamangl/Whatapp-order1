@@ -1,18 +1,31 @@
-# WhatsApp Order Automation — Updated Demo
+# WhatsApp Order Automation — refreshed storefront prototype
 
-## What's included
-- Professional responsive storefront and admin dashboard
-- Guest visitors can browse products, add to cart, and prepare an order for WhatsApp
-- Admin panel login password for this static demo: `ZAHEER` (case-sensitive)
-- Add/edit/delete products, upload product images from a phone or computer, and preview images
-- Order list, status updates, CSV export, store settings
-- WhatsApp order message with a formatted itemized list, quantities, subtotals, customer details, and total
-- Public Vercel deployment should not require visitors to have Vercel accounts if Deployment Protection is disabled for the production deployment
+## Included
+- Responsive storefront with product search and cart
+- Guest checkout that opens WhatsApp with a clean, itemized order message
+- Admin dashboard with Overview, Products, Orders, and Settings tabs
+- First-use admin password setup (minimum 8 characters); password hash is stored in this browser
+- Add/edit/delete products, select an image from the phone gallery, preview it, and remove it
+- Order list, status changes, CSV export, store name, WhatsApp number, currency and payment details
+- Vercel public-deployment note
 
-## Deploy
-Upload `index.html`, `styles.css`, `app.js`, and `README.md` to the root of the GitHub repository, then redeploy the project on Vercel.
+## Upload to GitHub / deploy
+Upload these files to the root of the existing repository:
+- `index.html`
+- `styles.css`
+- `app.js`
+- `README.md`
 
-## Important security and storage limits
-This is still a **static front-end demo**, not a production-secure store. The password is present in client-side JavaScript and can be discovered by a technically capable visitor. It protects the normal interface only; it is not secure authorization. Products, uploaded images, settings, and orders are saved in the current browser's localStorage, so they do not sync to other visitors/devices. Images are stored as browser data and should be small (under about 1.2 MB). For genuine admin security and shared product/order data, add a backend such as Supabase Auth + database + Storage, and enforce authorization with database policies/server-side logic. Never place secret service-role keys in browser code.
+Then let Vercel deploy the updated `main` branch. Keep Deployment Protection disabled for the public production deployment if customers should not need Vercel accounts.
 
-WhatsApp checkout opens a prefilled message. The customer must press Send. This site does not send messages automatically or process/verify payments. Only upload product images and use media you have rights to use. No tool can guarantee copyright claims will never happen.
+## Important limitations — read before using for real customers
+This is a **static prototype**, not a production-secure e-commerce backend:
+- Products, images, store settings, admin password hash, cart and orders use the browser's `localStorage`. They do **not** sync between devices or customers. Each browser has its own separate copy.
+- The password setup is a user-interface lock only. Since the app is static and all JavaScript runs in the browser, it cannot securely authorize admins or protect shared data. Do not treat this as real admin security.
+- Product images are stored as data URLs in local browser storage; use small images (up to about 1.2 MB) to reduce storage errors.
+- WhatsApp checkout opens a prefilled message. The customer must press **Send** in WhatsApp. It does not automatically send messages or save an order to a central database.
+- Payment methods in checkout are informational; no payment is processed or verified.
+
+Before running a real public store, integrate Supabase Auth, Database, and Storage. Use database Row Level Security policies so only authenticated admins can write products or manage orders, and keep privileged keys out of frontend JavaScript. Use a secure server-side order workflow if you need shared order records.
+
+Use only product images and media you have permission to use. No tool can guarantee copyright claims will never occur.
